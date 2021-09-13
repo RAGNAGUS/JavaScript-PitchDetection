@@ -16,7 +16,13 @@ function listening() {
 
 function modelLoaded() {
   console.log("Model Loaded");
-  pitch.getPitch(gotPitch);
+  updatePitch();
+}
+
+function updatePitch(){
+  setInterval(function(){
+    pitch.getPitch(gotPitch);
+  }, 100);
 }
 
 function gotPitch(err, frequency) {
@@ -28,7 +34,7 @@ function gotPitch(err, frequency) {
     if (frequency) {
       freq = frequency;
     }
-    pitch.getPitch(gotPitch);
+    //pitch.getPitch(gotPitch);
   }
 }
 
